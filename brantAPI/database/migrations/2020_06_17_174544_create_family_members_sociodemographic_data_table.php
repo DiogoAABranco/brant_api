@@ -13,14 +13,14 @@ class CreateFamilyMembersSociodemographicDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('family_members_sociodemographic_data', function (Blueprint $table) {
+        Schema::create('family_member_sociodemographic_data', function (Blueprint $table) {
 
 
-            $table->unsignedBigInteger('fm_id')->unsigned();
-            $table->unsignedBigInteger('sd_id')->unsigned();
+            $table->unsignedBigInteger('family_member_id')->unsigned();
+            $table->unsignedBigInteger('sociodemographic_data_id')->unsigned();
 
-            $table->foreign('fm_id')->references('id')->on('family_members');
-            $table->foreign('sd_id')->references('id')->on('sociodemographic_data');
+            $table->foreign('family_member_id')->references('id')->on('family_members')->onDelete('cascade');
+            $table->foreign('sociodemographic_data_id','sd_data_id')->references('id')->on('sociodemographic_data')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,16 @@ class CreateFamilyMembersSociodemographicDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('family_members_sociodemographic_data');
+        // Schema::table('family_member_sociodemographic_data', function (Blueprint $table) {
+        //     //
+        //     $table->dropForeign(['family_members_id']);
+        //     $table->dropForeign('sociodemographic_data_id');
+
+        //     $table->dropColumn('family_members_id');
+        //     $table->dropColumn('sociodemographic_data_id');
+        // });
+
+
+
     }
 }

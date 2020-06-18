@@ -31,6 +31,7 @@ class AddPatientFkToSociodemographicDataTable extends Migration
         Schema::table('sociodemographic_data', function (Blueprint $table) {
             //
             $table->dropForeign(['patient_id']);
+            $table->dropColumn('patient_id');
         });
     }
 }

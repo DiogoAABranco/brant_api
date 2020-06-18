@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('patients', 'PatientController@index');
+Route::get('patients/{id}', 'PatientController@show');
+Route::post('patients', 'PatientController@store');
+Route::put('patients/{id}', 'PatientController@update');
+Route::delete('patients/{id}', 'PatientController@destroy');
+
+//fields patient
+Route::get('form/patient', 'FormsController@patient');
+

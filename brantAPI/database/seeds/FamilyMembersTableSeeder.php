@@ -13,7 +13,7 @@ class FamilyMembersTableSeeder extends Seeder
     public function run()
     {
         //
-
+        FamilyMember::truncate();
 
         FamilyMember::create(['type' => 'pai']);
         FamilyMember::create(['type' => 'mãe']);

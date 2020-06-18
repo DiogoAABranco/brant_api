@@ -15,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PatientController@index');
 Route::get('/teste', 'PatientController@get');
+Route::get('/delete', 'PatientController@destroy');
+
+
+Route::get('/create-clinical-info', 'ClinicalInfoController@index');
+Route::get('/ci_teste', 'ClinicalInfoController@get');
