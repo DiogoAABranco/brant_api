@@ -14,6 +14,7 @@ class SociodemographicData extends Model
     }
 
     public function patient(){
+
         return $this->belongsTo(Patient::class);
     }
 }
