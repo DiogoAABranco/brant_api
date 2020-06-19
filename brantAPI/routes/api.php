@@ -24,6 +24,9 @@ Route::post('patients', 'PatientController@store');
 Route::put('patients/{id}', 'PatientController@update');
 Route::delete('patients/{id}', 'PatientController@destroy');
 
+//sociodemographic infor
+Route::get('sd_info/{id}', 'SociodemographicController@show');
+
 //fields patient
-Route::get('form/patient', 'FormsController@patient');
+Route::get('form/patient-fields', 'FormsController@patientForm');
 
