@@ -27,6 +27,13 @@ Route::delete('patients/{id}', 'PatientController@destroy');
 //sociodemographic infor
 Route::get('sd_info/{id}', 'SociodemographicController@show');
 
+//clinical info
+Route::get('clinical-info/{id}', 'ClinicalInfoController@index');
+Route::post('clinical-info/{id}', 'ClinicalInfoController@store');
+Route::put('clinical-info/{id}', 'ClinicalInfoController@update');//id de clinical info to update
+Route::delete('clinical-info/{id}', 'ClinicalInfoController@destroy');//id de clinical info to delete
+
 //fields patient
 Route::get('form/patient-fields', 'FormsController@patientForm');
+Route::get('form/clinical-info-types', 'FormsController@clinicalInfo');
 

@@ -30,6 +30,8 @@ class PatientController extends Controller
     public function show($id){
         try{
             $patient = Patient::findOrFail($id);
+            $patient->sociodemographic_data->familyMembers;
+            $patient->clinicalInfo;
 
             return response()->json($patient);
         }
