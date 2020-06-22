@@ -18,6 +18,10 @@ class PatientController extends Controller
         try{
             $patients = Patient::all();
 
+            foreach($patients as $patient){
+                $patient->sociodemographic_data;
+            }
+
             return response()->json($patients);
         }
         catch(\Exception $e){
