@@ -31,7 +31,6 @@ class ClinicalInfoController extends Controller
 
         $validator = Validator::make($request->all(),([
             'description' => 'required|string|max:500',
-            'date' => 'required|date|date_format:Y-m-d',
             'clinical_info_type_id' => 'required',
         ]));
 
@@ -42,7 +41,7 @@ class ClinicalInfoController extends Controller
 
         $clinical_info = new ClinicalInfo;
         $clinical_info->description = $request->description;
-        $clinical_info->date = $request->date;
+        $clinical_info->date = date("Y-m-d");
         $clinical_info->clinical_info_type_id = $request->clinical_info_type_id;
 
         $patient->clinicalInfo()->save($clinical_info);
