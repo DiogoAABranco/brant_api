@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'PatientController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
+//Route::get('/', 'PatientController@index');
 Route::get('/teste', 'PatientController@get');
 Route::get('/delete', 'PatientController@destroy');
 

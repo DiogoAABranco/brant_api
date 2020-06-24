@@ -22,7 +22,6 @@ class ClinicalInfoController extends Controller
             return response()->json([ "message" => "can not get clinical info"], 500);
         }
 
-
     }
 
     public function store(Request $request, $id){
