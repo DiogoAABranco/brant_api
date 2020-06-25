@@ -52,5 +52,26 @@ class GamesTableSeeder extends Seeder
         ]);
         $game3->gameVariableType()->attach([1,3]);
 
+        $game4 = Game::create([
+            'name' => 'jogo 4',
+            'description' => 'descrição do jogo 4',
+            'image' => 'urlDaImagem',
+        ]);
+        $game4->gameVariableType()->attach([1,2,3]);
+
+        $game5 = Game::create([
+            'name' => 'jogo 5',
+            'description' => 'descrição do jogo 5',
+            'image' => 'urlDaImagem',
+        ]);
+        $game5->gameVariableType()->attach([1,3]);
+
+        $game6 = Game::create([
+            'name' => 'jogo 6',
+            'description' => 'descrição do jogo 6',
+            'image' => 'urlDaImagem',
+        ]);
+        $game6->gameVariableType()->attach([2,3]);
+
     }
 }

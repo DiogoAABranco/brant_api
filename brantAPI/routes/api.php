@@ -37,3 +37,11 @@ Route::delete('clinical-info/{id}', 'ClinicalInfoController@destroy');//id de cl
 Route::get('form/patient-fields', 'FormsController@patientForm');
 Route::get('form/clinical-info-types', 'FormsController@clinicalInfo');
 
+//training program
+Route::get('training-program', 'TrainingProgramController@index');
+Route::get('training-program/{id}', 'TrainingProgramController@show');
+Route::post('training-program', 'TrainingProgramController@store');
+
+//games
+Route::get('games', 'GameController@index');
+Route::get('patients/{id}/recommended-games', 'GameController@recommendedGames');
