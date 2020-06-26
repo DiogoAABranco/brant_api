@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 use App\TrainingProgram;
@@ -41,26 +42,31 @@ class TrainingProgramTableSeeder extends Seeder
             ]);
             $game=Game::find(1);
             $game2=Game::find(2);
+            $game3=Game::find(3);
+            $game4=Game::find(4);
+
             $session->games()->attach($game);
             $session->games()->attach($game2);
+            $session->games()->attach($game3);
+            $session->games()->attach($game4);
+
         }
-        $sessoesTreino = TrainingProgram::find(1)->sessions->all();
-        foreach($sessoesTreino as $session){
-            //Log::info('sessao: '.$session);
-            foreach($session->games->all() as $game){
+        $games = TrainingProgram::find(1)->sessions->first()->games->all();
+
+            foreach($games as $game){
                 //Log::info('jogo: '.$game);
                 foreach($game->gameVariableType->all() as $var){
                     //Log::info('var: '.$var);
                     GameVariable::create([
                         'value' => rand(1,100),
                         'game_id' => $game->id,
-                        'session_id' => $session->id,
+                        'training_program_id' => TrainingProgram::find(1)->id,
                         'game_variable_type_id' => $var->id
                     ]);
                 }
 
             }
-        }
+
 
 
     }

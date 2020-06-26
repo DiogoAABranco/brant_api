@@ -19,4 +19,9 @@ class TrainingProgram extends Model
     public function sessions(){
         return $this->hasMany(Session::class);
     }
+
+    public function gameVariables(){
+
+        return $this->hasMany(GameVariable::class);
+    }
 }

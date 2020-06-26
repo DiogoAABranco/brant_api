@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\TrainingProgram;
+use App\Game;
 
 use Illuminate\Http\Request;
 

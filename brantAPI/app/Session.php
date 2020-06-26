@@ -12,11 +12,6 @@ class Session extends Model
         return $this->belongsTo(TrainingProgram::class);
     }
 
-    public function gameVariables(){
-
-        return $this->hasMany(GameVariable::class);
-    }
-
     public function games(){
 
         return $this->belongsToMany(Game::class);

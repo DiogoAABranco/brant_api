@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class GameVariable extends Model
 {
     //
-    public function session(){
+    protected $guarded = [];
+    public function trainingProgram(){
 
-        return $this->belongsTo(Session::class);
+        return $this->belongsTo(TrainingProgram::class);
     }
     public function game(){
 
