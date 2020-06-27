@@ -42,6 +42,9 @@ Route::get('training-program', 'TrainingProgramController@index');
 Route::get('training-program/{id}', 'TrainingProgramController@show');
 Route::post('training-program', 'TrainingProgramController@store');
 
+//session
+Route::delete('session/{id}', 'SessionController@destroy');
+
 //games
 Route::get('games', 'GameController@index');
 Route::get('patients/{id}/recommended-games', 'GameController@recommendedGames');

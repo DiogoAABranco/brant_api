@@ -34,7 +34,7 @@ class TrainingProgramTableSeeder extends Seeder
         ]);
 
 
-        for ($i = 0; $i < 21; $i++) {
+        for ($i = 0; $i < 21; $i++){
             $session = Session::create([
                 'date' => date("Y/m/d"),
                 'duration' => 23,
