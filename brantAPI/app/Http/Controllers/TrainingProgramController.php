@@ -6,6 +6,7 @@ use App\TrainingProgram;
 use App\Game;
 use App\Session;
 use App\GameVariable;
+use App\GameVariableType;
 use Illuminate\Support\Facades\Log;
 
 
@@ -33,6 +34,15 @@ class TrainingProgramController extends Controller
         $trainingProgram = TrainingProgram::findOrFail($id);
         $trainingProgram->patient;
         $trainingProgram->sessions;
+        $trainingProgram->gameVariables;
+
+        foreach($trainingProgram->gameVariables as $gameVariable){
+
+            $nameVar = GameVariableType::find($gameVariable->game_variable_type_id);
+            $gameVariable->{"name"} = $nameVar->name;
+            $gameVariable->game;
+
+        }
         foreach($trainingProgram->sessions as $session){
             $session->games;
         }

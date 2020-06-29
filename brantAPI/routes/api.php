@@ -48,3 +48,6 @@ Route::delete('session/{id}', 'SessionController@destroy');
 //games
 Route::get('games', 'GameController@index');
 Route::get('patients/{id}/recommended-games', 'GameController@recommendedGames');
+
+//games variables
+Route::put('game-variables', 'GameVariableController@update');
