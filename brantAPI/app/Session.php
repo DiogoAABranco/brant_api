@@ -16,5 +16,9 @@ class Session extends Model
 
         return $this->belongsToMany(Game::class);
     }
+    public function scores(){
+
+        return $this->hasMany(Score::class);
+    }
 
 }

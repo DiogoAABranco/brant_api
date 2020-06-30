@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Score extends Model
 {
     //
-    public function games(){
-        return $this->hasMany(Game::class);
+    public function game(){
+        return $this->belongsTo(Game::class);
     }
 
-    public function gamesVariables(){
+    public function type(){
 
-        return $this->hasMany(GameVariable::class);
+        return $this->belongsTo(ScoreType::class);
+    }
+    public function session(){
+
+        return $this->belongsTo(Session::class);
     }
 }

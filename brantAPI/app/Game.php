@@ -19,4 +19,8 @@ class Game extends Model
 
         return $this->belongsToMany(GameVariableType::class);
     }
+    public function scores(){
+
+        return $this->hasMany(Score::class);
+    }
 }

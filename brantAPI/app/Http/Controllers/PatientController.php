@@ -79,7 +79,6 @@ class PatientController extends Controller
 
         //sent string with family mebers id 2,3 then convert to array
         //$family_members_ids = explode(",", $request->family_members);
-        $family_members = FamilyMember::find([$request->family_members]);
 
 
 
@@ -87,8 +86,13 @@ class PatientController extends Controller
         if($patient->save()){
             Log::info('1************');
             if($patient->sociodemographic_data()->save($sd_data)){
-                Log::info('2************');
-                $sd_data->familyMembers()->attach($family_members);
+
+                foreach($request->family_members as $member){
+                    $family_member = FamilyMember::find($member);
+                    $sd_data->familyMembers()->attach($family_member);
+
+                }
+
 
                 return response()->json([ "message" => "patient record created","fm"=>$patient->sociodemographic_data->familyMembers], 201);
             }

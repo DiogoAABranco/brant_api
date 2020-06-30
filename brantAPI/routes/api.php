@@ -51,3 +51,10 @@ Route::get('patients/{id}/recommended-games', 'GameController@recommendedGames')
 
 //games variables
 Route::put('game-variables', 'GameVariableController@update');
+
+//simular sessões de treino
+//id do programa a simular
+//session -> id da sessão a simular
+Route::get('simulate-program/{id}/session/{session}', 'SimulatorController@simulateNextSession');
+Route::get('simulate-program/{id}', 'SimulatorController@simulateCompleteProgram');
+

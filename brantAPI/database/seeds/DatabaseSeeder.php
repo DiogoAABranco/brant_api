@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClinicalInfoTableSeeder::class);
         $this->call(GamesTableSeeder::class);
         $this->call(TrainingProgramTableSeeder::class);
+        $this->call(ScoreTypeTableSeeder::class);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

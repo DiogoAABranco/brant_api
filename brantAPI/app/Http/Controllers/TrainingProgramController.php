@@ -45,6 +45,7 @@ class TrainingProgramController extends Controller
         }
         foreach($trainingProgram->sessions as $session){
             $session->games;
+            $session->scores;
         }
 
         return response()->json($trainingProgram);
