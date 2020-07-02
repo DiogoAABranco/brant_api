@@ -58,3 +58,5 @@ Route::put('game-variables', 'GameVariableController@update');
 Route::get('simulate-program/{id}/session/{session}', 'SimulatorController@simulateNextSession');
 Route::get('simulate-program/{id}', 'SimulatorController@simulateCompleteProgram');
 
+//scores training program
+Route::get('scores/training-program/{id}', 'ScoreController@programScore');

@@ -62,6 +62,6 @@ class SimulatorController extends Controller
             $session->scores;
         }
 
-        return response()->json($trainingProgram,200);
+        return response()->json(["msg"=>"dados gerados com sucesso"],200);
     }
 }
