@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 use App\Game;
 use App\GameVariable;
+use App\ProfileByDomains;
 
 class GameController extends Controller
 {
@@ -19,14 +20,16 @@ class GameController extends Controller
         foreach ($games as $game) {
 
             $game->gameVariableType;
+
+            $gameProfile = ProfileByDomains::find($game->profile_by_domains_id);
+
+            $game['profileByDomain'] = $gameProfile->domains;
         }
 
         return response()->json($games);
     }
     public function recommendedGames($id)
     {
-
-
         $games = Game::find([1, 2, 3, 4]);
 
         foreach ($games as $game) {

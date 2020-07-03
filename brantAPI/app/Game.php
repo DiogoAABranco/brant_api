@@ -23,4 +23,9 @@ class Game extends Model
 
         return $this->hasMany(Score::class);
     }
+
+    public function profileByDomain()
+    {
+        return $this->hasOne(ProfileByDomains::class);
+    }
 }

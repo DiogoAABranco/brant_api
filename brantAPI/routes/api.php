@@ -60,3 +60,7 @@ Route::get('simulate-program/{id}', 'SimulatorController@simulateCompleteProgram
 
 //scores training program
 Route::get('scores/training-program/{id}', 'ScoreController@programScore');
+
+//domains
+Route::get('domains', 'DomainController@index');
+
