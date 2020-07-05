@@ -64,3 +64,9 @@ Route::get('scores/training-program/{id}', 'ScoreController@programScore');
 //domains
 Route::get('domains', 'DomainController@index');
 
+//assessmentTools
+Route::get('assessment-tools', 'AssessmentToolController@index');
+Route::get('assessment-tools/{id}', 'AssessmentToolController@show');
+Route::post('assessment-tools', 'AssessmentToolController@store');
+Route::delete('assessment-tools/{id}', 'AssessmentToolController@destroy');
+

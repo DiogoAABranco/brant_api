@@ -19,8 +19,14 @@ class Patient extends Model
 
         return $this->hasMany(ClinicalInfo::class);
     }
+
     public function trainingPrograms(){
 
         return $this->hasMany(TrainingProgram::class);
+    }
+
+    public function assessmentSessions(){
+
+        return $this->hasMany(AssessmentSession::class);
     }
 }

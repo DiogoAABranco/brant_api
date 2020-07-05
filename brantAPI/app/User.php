@@ -41,4 +41,9 @@ class User extends Authenticatable
 
         return $this->hasMany(TrainingProgram::class);
     }
+
+    public function assessmentSessions(){
+
+        return $this->hasMany(AssessmentSession::class);
+    }
 }

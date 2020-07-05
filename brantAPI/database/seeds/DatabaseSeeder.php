@@ -1,5 +1,6 @@
 <?php
 
+use App\Score;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
+
+        Score::truncate();
+
         $this->call(DomainTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(FamilyMembersTableSeeder::class);
@@ -22,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GamesTableSeeder::class);
         $this->call(TrainingProgramTableSeeder::class);
         $this->call(ScoreTypeTableSeeder::class);
+        $this->call(AssessmentToolTableSeeder::class);
+
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
