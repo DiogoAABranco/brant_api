@@ -29,4 +29,5 @@ class Patient extends Model
 
         return $this->hasMany(AssessmentSession::class);
     }
+
 }

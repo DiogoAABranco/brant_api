@@ -21,4 +21,8 @@ class AssessmentSession extends Model
 
         return $this->belongsTo(AssessmentTool::class);
     }
+    public function results(){
+
+        return $this->hasMany(AssessmentResult::class);
+    }
 }

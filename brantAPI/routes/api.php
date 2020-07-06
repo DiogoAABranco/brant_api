@@ -23,6 +23,8 @@ Route::get('patients/{id}', 'PatientController@show');
 Route::post('patients', 'PatientController@store');
 Route::put('patients/{id}', 'PatientController@update');
 Route::delete('patients/{id}', 'PatientController@destroy');
+Route::get('patients/{id}/assessments', 'PatientController@assessments');
+
 
 //sociodemographic infor
 Route::get('sd_info/{id}', 'SociodemographicController@show');
@@ -69,4 +71,9 @@ Route::get('assessment-tools', 'AssessmentToolController@index');
 Route::get('assessment-tools/{id}', 'AssessmentToolController@show');
 Route::post('assessment-tools', 'AssessmentToolController@store');
 Route::delete('assessment-tools/{id}', 'AssessmentToolController@destroy');
+
+//patient assessments
+Route::get('assessments', 'AssessmentSessionController@index');
+Route::get('assessments/{id}', 'AssessmentSessionController@show');
+Route::post('assessments', 'AssessmentSessionController@store');
 

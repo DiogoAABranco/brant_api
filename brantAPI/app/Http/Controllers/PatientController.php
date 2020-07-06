@@ -131,4 +131,24 @@ class PatientController extends Controller
         return response()->json(null, 204);
 
     }
+
+    public function assessments($id){
+
+        $assessments = Patient::findOrFail($id)->assessmentSessions;
+
+        foreach($assessments as $assessment){
+
+            $assessment->results;
+            $assessment->assessmentTool->modules;
+            foreach($assessment->assessmentTool->modules as $mod){
+                $mod->submodules;
+            }
+            $assessment->user;
+        }
+
+        return response()->json($assessments,200);
+
+
+    }
+
 }

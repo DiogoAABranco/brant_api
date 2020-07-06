@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TrainingProgramTableSeeder::class);
         $this->call(ScoreTypeTableSeeder::class);
         $this->call(AssessmentToolTableSeeder::class);
+        $this->call(AssessmentSessionTableSeeder::class);
 
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
