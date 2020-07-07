@@ -3,6 +3,7 @@
 use App\AssessmentResult;
 use App\AssessmentSession;
 use App\AssessmentTool;
+use App\Image;
 use Illuminate\Database\Seeder;
 
 class AssessmentSessionTableSeeder extends Seeder
@@ -16,6 +17,8 @@ class AssessmentSessionTableSeeder extends Seeder
     {
         //
         AssessmentSession::truncate();
+        AssessmentResult::truncate();
+        Image::truncate();
 
         AssessmentSession::create([
             "date" => date("Y/m/d"),

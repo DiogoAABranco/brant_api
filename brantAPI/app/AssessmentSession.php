@@ -25,4 +25,9 @@ class AssessmentSession extends Model
 
         return $this->hasMany(AssessmentResult::class);
     }
+
+    public function images(){
+
+        return $this->hasMany(Image::class);
+    }
 }
