@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Log;
 
+
 use Illuminate\Http\Request;
 use Validator;
 use App\Patient;
@@ -36,6 +37,23 @@ class PatientController extends Controller
             $patient = Patient::findOrFail($id);
             $patient->sociodemographic_data->familyMembers;
             $patient->clinicalInfo;
+
+            $cognitiveProfile = [];
+
+
+            $domains = ["Atenção" , "Visuo-espacial/executiva", "Nomeação", "Memória", "Linguagem", "Abstração", "Evocação diferida", "Orientação"];
+
+            foreach($domains as $domain){
+
+                $object = new \stdClass();
+                $object->domain = $domain;
+                $object->value = rand(0,100);
+
+                array_push($cognitiveProfile, $object);
+
+            }
+
+            $patient->cognitiveProfile = $cognitiveProfile;
 
             return response()->json($patient);
         }
@@ -139,11 +157,18 @@ class PatientController extends Controller
         foreach($assessments as $assessment){
 
             $assessment->results;
+
             $assessment->assessmentTool->modules;
+
             foreach($assessment->assessmentTool->modules as $mod){
+
                 $mod->submodules;
             }
+
             $assessment->user;
+            $assessment->images;
+
+
         }
 
         return response()->json($assessments,200);

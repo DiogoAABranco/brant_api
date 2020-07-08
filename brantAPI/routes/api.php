@@ -77,3 +77,8 @@ Route::get('assessments', 'AssessmentSessionController@index');
 Route::get('assessments/{id}', 'AssessmentSessionController@show');
 Route::post('assessments', 'AssessmentSessionController@store');
 
+
+//return images
+
+Route::get('images/{id}', 'ImageController@show');
+

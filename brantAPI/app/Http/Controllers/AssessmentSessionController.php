@@ -21,6 +21,8 @@ class AssessmentSessionController extends Controller
     public function show($id){
 
         $assessment = AssessmentSession::findOrFail($id);
+        $images = $assessment->images;
+
 
         return response()->json($assessment,200);
     }
@@ -87,4 +89,6 @@ class AssessmentSessionController extends Controller
 
         return response()->json(["msg"=>"success","request" =>$request],201);
     }
+
+
 }
