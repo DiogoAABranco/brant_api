@@ -14,9 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+//without token
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
+
+
+//acesso only with token
+Route::group(['middleware' => 'auth:api'], function(){
+
+    Route::post('details', 'UserController@details');
+
+
 });
+
+
+
 
 Route::get('patients', 'PatientController@index');
 Route::get('patients/{id}', 'PatientController@show');
@@ -79,6 +95,7 @@ Route::post('assessments', 'AssessmentSessionController@store');
 
 
 //return images
-
 Route::get('images/{id}', 'ImageController@show');
+
+
 
