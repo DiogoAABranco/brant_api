@@ -62,7 +62,17 @@ public $successStatus = 200;
      */
     public function details()
     {
-        $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        try{
+            $user = Auth::user();
+            return response()->json(['msg'=>'success','user' => $user], $this->successStatus);
+        }catch(\Exception $e){
+            Log::info($e);
+            return response()->json(['msg'=>'error'], $this->successStatus);
+
+        }
+
+
+
+
     }
 }

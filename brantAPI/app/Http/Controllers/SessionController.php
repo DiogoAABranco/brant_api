@@ -27,7 +27,7 @@ class SessionController extends Controller
 
 
         Log::info("treino: " .$trainingProgram->id);
-        return response()->json(["msg" => "Sessão eliminada"],200);
+        return response()->json(["msg" => "Sessão eliminada","trainingProgram"=>$trainingProgram],200);
 
 
 

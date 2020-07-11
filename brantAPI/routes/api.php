@@ -30,10 +30,6 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 
 
-
-
-
-
 Route::get('patients', 'PatientController@index');
 Route::get('patients/{id}', 'PatientController@show');
 Route::post('patients', 'PatientController@store');
