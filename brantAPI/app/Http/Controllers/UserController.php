@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Validator;
 class UserController extends Controller
 {
@@ -14,9 +15,15 @@ public $successStatus = 200;
      * @return \Illuminate\Http\Response
      */
     public function login(){
+        Log::info( "LOGIN");
+        Log::info(  request('email').request('password'));
+
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+            Log::info("dentro if");
+
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+            Log::info( $success );
             return response()->json(['success' => $success], $this->successStatus);
         }
         else{

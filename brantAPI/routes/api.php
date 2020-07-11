@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'UserController@details');
 
 
-});
+
 
 
 
@@ -99,3 +99,4 @@ Route::get('images/{id}', 'ImageController@show');
 
 
 
+});
