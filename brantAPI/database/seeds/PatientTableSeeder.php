@@ -34,10 +34,16 @@ class PatientTableSeeder extends Seeder
             'type' => '1 Ciclo',
         ]);
         EducationLevels::create([
-            'type' => '2 Ciclow',
+            'type' => '2 Ciclo',
         ]);
         EducationLevels::create([
             'type' => '3 Ciclo',
+        ]);
+        EducationLevels::create([
+            'type' => 'Secundário',
+        ]);
+        EducationLevels::create([
+            'type' => 'Ensino Superior',
         ]);
 
         Patient::create([

@@ -17,7 +17,7 @@ class FamilyMembersTableSeeder extends Seeder
 
         FamilyMember::create(['type' => 'pai']);
         FamilyMember::create(['type' => 'mãe']);
-        FamilyMember::create(['type' => 'conjugue']);
+        FamilyMember::create(['type' => 'esposo/a']);
         FamilyMember::create(['type' => 'filho']);
         FamilyMember::create(['type' => 'filha']);
 
