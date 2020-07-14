@@ -11,6 +11,8 @@ class SimulatorController extends Controller
     //
     public function simulateCompleteProgram($id){
         $trainingProgram = TrainingProgram::FindOrFail($id);
+        $trainingProgram->isActive = 0;
+        $trainingProgram->save();
         foreach($trainingProgram->sessions as $session){
             $session->isDone = true;
             $session->save();
