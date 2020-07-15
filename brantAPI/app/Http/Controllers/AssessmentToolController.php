@@ -84,6 +84,13 @@ class AssessmentToolController extends Controller
 
                                 $newSubmodule->type = 'numeric';
 
+                                if($submodule['stateValues']){
+
+                                    $newSubmodule->min_value = $submodule['minValue'];
+
+                                    $newSubmodule->max_value = $submodule['maxValue'];
+                                }
+
                                 $newSubmodule->module_id = $newModule->id;
 
                                 $newSubmodule->save();
