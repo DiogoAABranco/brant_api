@@ -35,11 +35,21 @@ class AssessmentSessionTableSeeder extends Seeder
 
                 foreach($module->submodules as $submod){
 
-                    AssessmentResult::create([
-                        "value" => rand(0,100),
-                        "assessment_session_id" =>1,
-                        "submodule_id" => $submod->id
-                    ]);
+                    if($submod->min_value === null || $submod->max_value === null){
+                        AssessmentResult::create([
+                            "value" => rand(0,8),
+                            "assessment_session_id" =>1,
+                            "submodule_id" => $submod->id
+                        ]);
+                    }
+                    else{
+                        AssessmentResult::create([
+                            "value" => rand($submod->min_value,$submod->max_value),
+                            "assessment_session_id" =>1,
+                            "submodule_id" => $submod->id
+                        ]);
+                    }
+
                 }
 
             }

@@ -10,6 +10,20 @@ use Illuminate\Support\Facades\Log;
 class SessionController extends Controller
 {
     //
+
+    public function update(Request $request){
+
+        LOG::info("sessão: ".$request);
+        $session = Session::findOrFail($request->id);
+        $notes = $request->notes;
+        if($notes != null){
+            $session->notes = $notes;
+        }
+
+        $session->save();
+        return response()->json(["msg" =>"success", "notes" =>$notes],201);
+    }
+
     public function destroy($id){
 
         $session = Session::find($id);//atualizar n de sessoes do treino

@@ -57,6 +57,7 @@ Route::get('training-program/{id}', 'TrainingProgramController@show');
 Route::post('training-program', 'TrainingProgramController@store');
 
 //session
+Route::put('session', 'SessionController@update');
 Route::delete('session/{id}', 'SessionController@destroy');
 
 //games

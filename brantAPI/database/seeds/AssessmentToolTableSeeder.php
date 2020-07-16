@@ -32,6 +32,8 @@ class AssessmentToolTableSeeder extends Seeder
         Submodule::create([
             'name' => 'Atenção',
             'type' => 'numeric',
+            'min_value' => 0,
+            'max_value' => 6,
             'module_id' => 1
         ]);
 
@@ -43,36 +45,48 @@ class AssessmentToolTableSeeder extends Seeder
 
         Submodule::create([
             'name' => 'Nomeação',
+            'min_value' => 0,
+            'max_value' => 3,
             'type' => 'numeric',
             'module_id' => 1
         ]);
 
         Submodule::create([
             'name' => 'Função executiva',
+            'min_value' => 0,
+            'max_value' => 5,
             'type' => 'numeric',
             'module_id' => 1
         ]);
 
         Submodule::create([
             'name' => 'Linguagem',
+            'min_value' => 0,
+            'max_value' => 3,
             'type' => 'numeric',
             'module_id' => 1
         ]);
 
         Submodule::create([
             'name' => 'Abstração',
+            'min_value' => 0,
+            'max_value' => 2,
             'type' => 'numeric',
             'module_id' => 1
         ]);
 
         Submodule::create([
             'name' => 'Evocação diferida',
+            'min_value' => 0,
+            'max_value' => 5,
             'type' => 'numeric',
             'module_id' => 1
         ]);
 
         Submodule::create([
             'name' => 'Orientação',
+            'min_value' => 0,
+            'max_value' => 6,
             'type' => 'numeric',
             'module_id' => 1
         ]);
