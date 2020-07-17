@@ -37,6 +37,7 @@ class PatientController extends Controller
             $patient = Patient::findOrFail($id);
             $patient->sociodemographic_data->familyMembers;
             $patient->clinicalInfo;
+            $patient->trainingPrograms;;
 
             $cognitiveProfile = [];
 

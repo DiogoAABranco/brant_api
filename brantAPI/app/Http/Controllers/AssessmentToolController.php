@@ -114,4 +114,18 @@ class AssessmentToolController extends Controller
 
 
     }
+
+    public function destroy($id){
+        $tool = AssessmentTool::findOrFail($id);
+
+
+
+        if(count($tool->assessmentSessions) == 0){
+            $tool->delete();
+            return response()->json(["msg"=>"success"], 200);
+        }
+        else{
+            return response()->json(["msg"=>"error"], 200);
+        }
+    }
 }

@@ -40,6 +40,9 @@ class GameController extends Controller
                 $value = rand(1, 100);
                 $var->{"value"} = $value;
             }
+            $gameProfile = ProfileByDomains::find($game->profile_by_domains_id);
+
+            $game['profileByDomain'] = $gameProfile->domains;
         }
 
         return response()->json($games);
