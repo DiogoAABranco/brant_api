@@ -64,6 +64,7 @@ public $successStatus = 200;
     {
         try{
             $user = Auth::user();
+            $user->role;
             return response()->json(['msg'=>'success','user' => $user], $this->successStatus);
         }catch(\Exception $e){
             Log::info($e);

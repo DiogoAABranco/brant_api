@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         Score::truncate();
 
         $this->call(DomainTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(FamilyMembersTableSeeder::class);
         $this->call(PatientTableSeeder::class);

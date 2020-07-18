@@ -18,9 +18,16 @@ class UserTableSeeder extends Seeder
         //
         User::truncate();
         DB::table('users')->insert([
-            'name' => 'profissional',
-            'email' => Str::random(10).'@teste.com',
-            'password' => Hash::make('password'),
+            'name' => 'Admin',
+            'email' => 'admin@teste.com',
+            'password' => Hash::make('admin'),
+            'role_id' => 1,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Luis Gonçalves',
+            'email' => 'luis@teste.com',
+            'password' => Hash::make('123456'),
+            'role_id' => 2,
         ]);
 
     }

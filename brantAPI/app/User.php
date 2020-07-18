@@ -47,4 +47,9 @@ class User extends Authenticatable
 
         return $this->hasMany(AssessmentSession::class);
     }
+
+    public function role(){
+
+        return $this->belongsTo(Role::class);
+    }
 }
