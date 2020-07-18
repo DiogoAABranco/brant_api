@@ -123,4 +123,13 @@ class TrainingProgramController extends Controller
 
         return response()->json($trainingProgram);
     }
+
+    public function update (Request $request){
+        $trainingProgram = TrainingProgram::findOrFail($request->id);
+
+        $trainingProgram->isActive = $request->isActive;
+        $trainingProgram->save();
+
+        return response()->json(["msg" => "success", "isActive" => $trainingProgram->isActive],200);
+    }
 }

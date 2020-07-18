@@ -54,6 +54,7 @@ Route::get('form/clinical-info-types', 'FormsController@clinicalInfo');
 //training program
 Route::get('training-program', 'TrainingProgramController@index');
 Route::get('training-program/{id}', 'TrainingProgramController@show');
+Route::put('training-program', 'TrainingProgramController@update');
 Route::post('training-program', 'TrainingProgramController@store');
 
 //session
