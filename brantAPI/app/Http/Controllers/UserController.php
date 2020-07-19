@@ -23,6 +23,8 @@ public $successStatus = 200;
 
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+            $user->role;
+            $success['user'] =  $user;
             Log::info( $success );
             return response()->json(['success' => $success], $this->successStatus);
         }
