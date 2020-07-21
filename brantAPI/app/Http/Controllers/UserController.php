@@ -41,19 +41,30 @@ public $successStatus = 200;
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'c_password' => 'required|same:password',
+
         ]);
         if ($validator->fails()) {
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-        $input = $request->all();
-                $input['password'] = bcrypt($input['password']);
-                $user = User::create($input);
-                $success['token'] =  $user->createToken('MyApp')->accessToken;
-                $success['name'] =  $user->name;
+        $user = new User();
+        $user->name = $request->name;
+        $user->role_id = $request->role_id;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->createToken('MyApp')->accessToken;
+        Log::info($user->name);
+
+        if($user->save()){
+            $success['msg'] =  "success";
+        }else{
+            $success['msg'] =  "error";
+        }
+
+            $success['name'] =  $user->name;
 
         return response()->json(['success'=>$success], $this->successStatus);
     }
@@ -74,8 +85,19 @@ public $successStatus = 200;
 
         }
 
+    }
+
+    public function index(){
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+
+            $user->role;
+        }
 
 
 
+        return response()->json($users, 200);
     }
 }

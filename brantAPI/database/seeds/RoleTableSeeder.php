@@ -20,7 +20,7 @@ class RoleTableSeeder extends Seeder
             'name' => 'admin'
         ]);
         DB::table('roles')->insert([
-            'name' => 'user'
+            'name' => 'profissional de saúde'
         ]);
     }
 }

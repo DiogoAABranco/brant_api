@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 //without token
 Route::post('login', 'UserController@login');
-Route::post('register', 'UserController@register');
 
 
 //acesso only with token
@@ -28,7 +27,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('details', 'UserController@details');
 
-
+    Route::post('register', 'UserController@register');
 
 Route::get('patients', 'PatientController@index');
 Route::get('patients/{id}', 'PatientController@show');
@@ -96,5 +95,11 @@ Route::post('assessments', 'AssessmentSessionController@store');
 Route::get('images/{id}', 'ImageController@show');
 
 
+//Users
+Route::get('users', 'UserController@index');
+
+
+//roles
+Route::get('roles', 'RoleController@index');
 
 });
