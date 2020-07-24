@@ -20,8 +20,8 @@ class AssessmentToolTableSeeder extends Seeder
         Submodule::truncate();
 
         AssessmentTool::create([
-            'name' => 'moca',
-            'description' => 'Descrição do teste de avaliação moca...'
+            'name' => 'MoCA',
+            'description' => 'Avaliar a condição cognitiva do utente.'
         ]);
 
         Module::create([
@@ -90,6 +90,70 @@ class AssessmentToolTableSeeder extends Seeder
             'type' => 'numeric',
             'module_id' => 1
         ]);
+
+
+        /*
+            IAFAI
+        */
+
+        AssessmentTool::create([
+            'name' => 'IAFAI',
+            'description' => 'Avaliação da capacidade funcional de adultos e idosos.'
+        ]);
+
+        Module::create([
+            'name' => 'Atividades básicas de vida diária (ABVD)',
+            'assessment_tool_id' => 2
+        ]);
+
+        Submodule::create([
+            'name' => 'Incapacidade funcional - ABVD',
+            'type' => 'numeric',
+            'min_value' => 0,
+            'max_value' => 100,
+            'module_id' => 2
+        ]);
+
+
+        Module::create([
+            'name' => 'Atividades instrumentais de vida diária - Familiares (AIVD-F)',
+            'assessment_tool_id' => 2
+        ]);
+
+        Submodule::create([
+            'name' => 'Incapacidade funcional - AIVD-F',
+            'type' => 'numeric',
+            'min_value' => 0,
+            'max_value' => 100,
+            'module_id' => 3
+        ]);
+
+
+        Module::create([
+            'name' => 'Atividades instrumentais de vida diária - Avançadas (AIVD-A)',
+            'assessment_tool_id' => 2
+        ]);
+
+        Submodule::create([
+            'name' => 'Incapacidade funcional - AIVD-A',
+            'type' => 'numeric',
+            'min_value' => 0,
+            'max_value' => 100,
+            'module_id' => 4
+        ]);
+
+
+        Module::create([
+            'name' => 'Global',
+            'assessment_tool_id' => 2
+        ]);
+
+        Submodule::create([
+            'name' => 'Incapacidade funcional - Total',
+            'type' => 'numeric',
+            'module_id' => 5
+        ]);
+
 
 
 

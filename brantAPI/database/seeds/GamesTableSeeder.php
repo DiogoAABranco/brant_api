@@ -24,13 +24,22 @@ class GamesTableSeeder extends Seeder
         DB::table('game_game_variable_type')->truncate();
 
         GameVariableType::create([
-            'name' => 'parametro 1'
+            'name' => 'Número de estímulos'
         ]);
         GameVariableType::create([
-            'name' => 'parametro 2'
+            'name' => 'Opções de resposta'
         ]);
         GameVariableType::create([
-            'name' => 'parametro 3'
+            'name' => 'Número de distratores'
+        ]);
+        GameVariableType::create([
+            'name' => 'Dificuldade de interpretação'
+        ]);
+        GameVariableType::create([
+            'name' => 'Número máximo de estímulos'
+        ]);
+        GameVariableType::create([
+            'name' => 'Número mínimo de estímulos'
         ]);
 
         $profileByDomains = new ProfileByDomains;
@@ -69,7 +78,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => $profileByDomains->id
         ]);
-        $game->gameVariableType()->attach($vars);
+        $game->gameVariableType()->attach([2,3,4,5]);
 
         $game2 = Game::create([
             'name' => 'jogo 2',
@@ -77,7 +86,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => 2
         ]);
-        $game2->gameVariableType()->attach([2,3]);
+        $game2->gameVariableType()->attach([1,2,3,4]);
 
         $game3 = Game::create([
             'name' => 'jogo 3',
@@ -85,7 +94,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => 3
         ]);
-        $game3->gameVariableType()->attach([1,3]);
+        $game3->gameVariableType()->attach([1,2,3,4]);
 
         $game4 = Game::create([
             'name' => 'jogo 4',
@@ -93,7 +102,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => 4
         ]);
-        $game4->gameVariableType()->attach([1,2,3]);
+        $game4->gameVariableType()->attach([2,3,4,6]);
 
         $game5 = Game::create([
             'name' => 'jogo 5',
@@ -101,7 +110,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => 5
         ]);
-        $game5->gameVariableType()->attach([1,3]);
+        $game5->gameVariableType()->attach([1,2,3,4,5]);
 
         $game6 = Game::create([
             'name' => 'jogo 6',
@@ -109,7 +118,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'urlDaImagem',
             'profile_by_domains_id' => 6
         ]);
-        $game6->gameVariableType()->attach([2,3]);
+        $game6->gameVariableType()->attach([2,3,4,6]);
 
 
 

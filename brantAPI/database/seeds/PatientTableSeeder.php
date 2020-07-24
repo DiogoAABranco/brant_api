@@ -47,30 +47,30 @@ class PatientTableSeeder extends Seeder
         ]);
 
         Patient::create([
-            'name' => 'maria',
+            'name' => 'Maria Silva',
             'email' => 'maria@teste.com',
-            'address' => 'maria morada',
+            'address' => 'Rua número 1',
             'is_active' => true
         ]);
 
         SociodemographicData::create([
             'date_of_birth' => date("1970/02/21"),
-            'job' => 'professor',
-            'gender' => 2,
-            'education_level_id' => 2,
+            'job' => 'Professor',
+            'gender' => 1,
+            'education_level_id' => 6,
             'patient_id' => 1
         ]);
 
         Patient::create([
-            'name' => 'luis',
-            'email' => 'luis@teste.com',
-            'address' => 'luis morada',
+            'name' => 'João Gomes',
+            'email' => 'joao@teste.com',
+            'address' => 'Rua número 2',
             'is_active' => true
         ]);
 
        SociodemographicData::create([
             'date_of_birth' => date("1980/05/29"),
-            'job' => 'padeiro',
+            'job' => 'Cozinheiro',
             'gender' => 2,
             'education_level_id' => 1,
             'patient_id' => 2
@@ -80,7 +80,39 @@ class PatientTableSeeder extends Seeder
         SociodemographicData::find(2)->familyMembers()->attach(FamilyMember::find([1,2,3]));
 
 
+        Patient::create([
+            'name' => 'Fernanda Santos',
+            'email' => 'fernanda@teste.com',
+            'address' => 'Rua número 3',
+            'is_active' => true
+        ]);
+
+        SociodemographicData::create([
+            'date_of_birth' => date("1954/10/21"),
+            'job' => 'Reformada',
+            'gender' => 1,
+            'education_level_id' => 2,
+            'patient_id' => 3
+        ]);
+        SociodemographicData::find(3)->familyMembers()->attach(FamilyMember::find([3,4]));
 
 
+
+        Patient::create([
+            'name' => 'Francisco Silva',
+            'email' => 'fs@teste.com',
+            'address' => 'Rua número 4',
+            'is_active' => true
+        ]);
+
+       SociodemographicData::create([
+            'date_of_birth' => date("1967/05/29"),
+            'job' => 'Professor',
+            'gender' => 2,
+            'education_level_id' => 6,
+            'patient_id' => 4
+        ]);
+
+        SociodemographicData::find(4)->familyMembers()->attach(FamilyMember::find([3,4,5]));
     }
 }
